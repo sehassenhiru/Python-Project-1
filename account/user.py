@@ -8,19 +8,25 @@ class User:
         self.accounts.append(account)
 
     def get_total_balance(self): 
-        return 0
+        # Calculate the sum of all account balances
+        total = sum(account.get_balance() for account in self.accounts)
+        return total
 
     def get_account_count(self):
-        account_count = len(self.accounts) +1
-        return account_count
-
+        # Return the actual count of accounts
+        return len(self.accounts)
 
     def remove_account(self, account):
-        return "Account"
+        if account in self.accounts:
+            self.accounts.remove(account)
+            return f"Account removed successfully"
+        return "Account not found"
 
-    def is_valid_email(self,email):
-        return None
-
+    def is_valid_email(self, email):
+        # Basic email validation
+        import re
+        email_pattern = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+        return bool(email_pattern.match(email))
 
     def __str__(self):
         return f"{self.name} ({self.email}) - {self.get_account_count()} account(s), Total Balance: ${self.get_total_balance()}"
