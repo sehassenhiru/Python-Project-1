@@ -10,7 +10,11 @@ def create_user():
     user = User(name, email)
     if not user.is_valid_email(email):
         print("Invalid email address!")
+<<<<<<< HEAD
         return  # Exit the function if the email is invalid
+=======
+        return
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
     users.append(user)
     print(f"User {name} created.\n")
 
@@ -23,8 +27,12 @@ def list_users():
     return True
 
 def create_account():
+<<<<<<< HEAD
     # Issue #1 & #4 Fixed: Check if users exist before proceeding
     if not list_users():  # This will print the message and return False if no users
+=======
+    if not list_users():
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
         return
 
     while True:
@@ -34,7 +42,10 @@ def create_account():
                 user = users[idx]
                 break
             else:
+<<<<<<< HEAD
                 # Issue #5 Fixed: Display error message for invalid user selection
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
                 print("Invalid user selection.\n")
         except ValueError:
             print("Invalid input. Please enter a number.\n")
@@ -50,7 +61,10 @@ def create_account():
             if account_choice in [1, 2, 3]:
                 break
             else:
+<<<<<<< HEAD
                 # Issue #6 Fixed: Display error message for invalid account type
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
                 print("Invalid account type!")
         except ValueError:
             print("Invalid input. Please enter a number between 1 and 3.\n")
@@ -76,7 +90,10 @@ def create_account():
     print(f"{account.get_account_type()} added!\n")
 
 def deposit_money():
+<<<<<<< HEAD
     # Issue #3 Fixed: Check if users exist before proceeding
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
     if not list_users():
         return
 
@@ -114,7 +131,10 @@ def deposit_money():
         try:
             amount = float(input("Enter amount to deposit: "))
             if amount > 0:
+<<<<<<< HEAD
                 # Issue #2 Fixed: Ensure balance consistency by directly using the deposit method
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
                 account.deposit(amount)
                 print("Deposit successful.\n")
                 break
@@ -124,7 +144,10 @@ def deposit_money():
             print("Invalid input. Please enter a valid amount.\n")
 
 def withdraw_money():
+<<<<<<< HEAD
     # Issue #3 Fixed: Check if users exist before proceeding
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
     if not list_users():
         return
 
@@ -163,20 +186,30 @@ def withdraw_money():
             amount = float(input("Enter amount to withdraw: "))
             if amount > 0:
                 try:
+<<<<<<< HEAD
                     # Issue #2 Fixed: Ensure balance consistency by directly using the withdraw method
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
                     account.withdraw(amount)
                     print("Withdrawal successful.\n")
                     break
                 except ValueError as e:
                     print(f"Error: {e}\n")
+<<<<<<< HEAD
                     break  # Exit withdrawal attempt after error
+=======
+                    break # Exit withdrawal attempt after error
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
             else:
                 print("Withdrawal amount must be positive.\n")
         except ValueError:
             print("Invalid input. Please enter a valid amount.\n")
 
 def view_transactions():
+<<<<<<< HEAD
     # Issue #3 Fixed: Check if users exist before proceeding
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
     if not list_users():
         return
 
@@ -204,6 +237,7 @@ def view_transactions():
                 print(tx)
         else:
             print("No transaction history yet.")
+<<<<<<< HEAD
 
 # Example usage (for testing the fixes):
 while True:
@@ -235,4 +269,36 @@ while True:
         break
     else:
         print("Invalid choice. Please try again.\n")
+=======
+>>>>>>> 8572a8d3f321b5d16bf02a2317c4dcfa558ac644
 
+# Example usage (for testing the fixes):
+while True:
+    print("\nBanking System Menu:")
+    print("1. Create User")
+    print("2. List Users")
+    print("3. Create Account")
+    print("4. Deposit Money")
+    print("5. Withdraw Money")
+    print("6. View Transactions")
+    print("7. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        create_user()
+    elif choice == '2':
+        list_users()
+    elif choice == '3':
+        create_account()
+    elif choice == '4':
+        deposit_money()
+    elif choice == '5':
+        withdraw_money()
+    elif choice == '6':
+        view_transactions()
+    elif choice == '7':
+        print("Exiting the banking system. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please try again.\n")
